@@ -2,6 +2,8 @@ package UserInfo;
 
 public class Testing {
 
+    private static int attempts = 0;
+
     public static int checkUnPw(String Un, String Pw){
         if (Un.equals("test") && !Pw.equals("test")){
             return 0;
@@ -12,9 +14,21 @@ public class Testing {
         else return 2;
     }
 
-    public static User createUser(String Uname, String Pword){
-        User user = new User(Uname, Pword);
-        return user;
+    public static user createUser(String Uname, String Pword){
+        user user;
+        try {
+            while (attempts < 3) {
+                user = new user(Uname, Pword, attempts, true);
+                attempts++;
+                if (user.isActive()) {
+                    return user;
+                }
+            }
+        } catch (InstantiationException e) {
+            System.out.println(e);
+        }
+
+        return null;
     }
 
 }

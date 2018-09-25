@@ -1,6 +1,6 @@
 package Servlets;
 
-import userinfo.user;
+import UserInfo.user;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

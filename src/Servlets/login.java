@@ -1,7 +1,7 @@
 package Servlets;
 
-import userinfo.user;
-import userinfo.usertest;
+import UserInfo.user;
+import UserInfo.usertest;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;

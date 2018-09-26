@@ -61,11 +61,7 @@ public class Login extends HttpServlet {
 
 
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    //      if (request.getAttribute("error") != null) {
-              fromURI = (String) request.getAttribute("fromURI");
-     //         doGet(request, response);
-              request.getRequestDispatcher("/Login.jsp").forward(request,response);
-     //     }
-
+            fromURI = (String) request.getAttribute("fromURI");
+            request.getRequestDispatcher("/Login.jsp").forward(request,response);
     }
 }

@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         String Username = request.getParameter("username");
         String Password = request.getParameter("password");
 
-        String dbPassword = "";
+        String dbPassword = ""; 
         String email = "";
 
         boolean userExists = false;

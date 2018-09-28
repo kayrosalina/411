@@ -18,9 +18,9 @@ public class Test extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Cache-control", "no-cache, no-store");
+        response.setHeader("Cache-control", "private, no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
-        response.setHeader("Expires", "-1");
+        response.setHeader("Expires", "0");
 
         if (request.getSession(false).getAttribute("username")!= null){
             User user = (User) request.getSession().getAttribute("username");

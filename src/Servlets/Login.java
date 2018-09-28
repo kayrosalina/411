@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.sql.*;
 
-//THINGS TO FIX :: error line, login redirect/URI followup
+//THINGS TO FIX :: error line
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -26,8 +28,54 @@ public class Login extends HttpServlet {
         String Username = request.getParameter("username");
         String Password = request.getParameter("password");
 
-        valid = Testing.checkUnPw(Username, Password);
-        if (valid == 1) {
+        String dbPassword = "";
+        String email = "";
+
+        boolean userExists = false;
+        boolean userCanLogin = false;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/project","root","root");
+//here sonoo is database name, root is username and password
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from login WHERE username = '" + Username +"'");
+            if(rs.next())
+            {
+                userExists = true;
+                dbPassword= rs.getString("password");
+                email = rs.getString("email");
+                if(dbPassword.equals(Password))
+                {
+                    userCanLogin = true;
+                }
+            }
+            con.close();
+        }
+        catch(Exception e){
+            userExists = false;
+            System.out.println(e);
+        }
+
+
+        PrintWriter out = response.getWriter();
+
+        if(userExists && userCanLogin)
+        {
+            out.print("User exists and can login.  Email is: " + email);
+            //request.getRequestDispatcher("/Login.jsp").forward(request, response);
+        }
+        else
+        {
+            out.print("Cannot login");
+            out.print("User = " + Username + " : Pass = " + Password);
+            //request.getRequestDispatcher("/Home").forward(request, response);
+        }
+        out.print(email + "  " + dbPassword);
+
+        //valid = Testing.checkUnPw(Username, Password);
+        /*
+        if (userExists && userCanLogin) {
             user = Testing.createUser(Username, Password);
             if (user.isActive()) {
                 user.setAttempts(0);
@@ -38,8 +86,8 @@ public class Login extends HttpServlet {
                 if (fromURI != null) {
                     request.getRequestDispatcher(fromURI).forward(request, response);
                     request.removeAttribute("fromURI");
-                } else request.getRequestDispatcher("/Home.jsp").forward(request, response);
-            } else {
+                } else request.getRequestDispatcher("/Home").forward(request, response);
+            } else if (userExists){
                 request.setAttribute("error", "User is inactive.");
                 doGet(request, response);
             }
@@ -57,15 +105,12 @@ public class Login extends HttpServlet {
             out.print("User does not exist");
             request.getRequestDispatcher("/Login.jsp").forward(request, response);
         }
+        */
     }
 
 
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    //      if (request.getAttribute("error") != null) {
-              fromURI = (String) request.getAttribute("fromURI");
-     //         doGet(request, response);
-              request.getRequestDispatcher("/Login.jsp").forward(request,response);
-     //     }
-
+            fromURI = (String) request.getAttribute("fromURI");
+            request.getRequestDispatcher("/Login.jsp").forward(request,response);
     }
 }

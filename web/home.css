@@ -1,0 +1,228 @@
+/*navbar/banner*/
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Quicksand;
+    background: whitesmoke;
+}
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 90px;
+    padding: 5px 90px;
+    box-sizing: border-box;
+    transition:.3s;
+}
+nav.black{
+    background: whitesmoke;
+    height: 90px;
+    padding:5px 90px;
+}
+nav .CyberSmart {
+    padding: 22px 20px;
+    height: 80px;
+    float: left;
+    font-size: 24px;
+    transition: .3s;
+}
+nav.black .CyberSmart {
+    color: #000;
+}
+nav ul{
+    list-style:none;
+    float: right;
+    margin:0;
+    padding: 0;
+    display:flex;
+}
+nav ul li{
+    list-style: none;
+}
+nav ul li a{
+    line-height:80px;
+    color:#151515;
+    padding:12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+}
+nav.black ul li a{
+    color: #000;
+}
+nav ul li a:focus{
+    outline: none;
+}
+nav ul li a.active{
+    background: darkorange;
+    color:#fff;
+    border-radius:6px;
+}
+section.banner{
+    width: 100%;
+    height: 50vh;
+    background: url(test.png);
+    background-size: cover;
+    background-position: center;
+    top: 25px;
+}
+section.banner .container h1{
+    padding-top: 25px;
+    font-size: 38px;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-family: Rockwell;
+}
+
+/*navbar/banner*/
+
+.container{
+    position: relative;
+    top: 50px;
+    float: left;
+    width: 100%;
+}
+.container .box{
+    width: 25%;
+    float: left;
+}
+.container .box h2{
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.container .box h3{
+    text-align: center;
+    color: darkblue;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+}
+.container .box .chart{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 45px;
+    line-height: 200px;
+}
+.container .box canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*three blocks*/
+
+.xop-grid {
+    display: block;
+    text-align: center;
+    width: 95%;
+}
+
+.xop-grid li {
+    width: 28%;
+    height: 328px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.xop-box {
+    top: 75px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /*cursor: pointer;*/
+    border-radius: 10px;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+    -moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.xop-box a.active{
+    background: darkorange;
+    color:#fff;
+    border-radius:6px;
+}
+.xop-box a{
+    line-height:80px;
+    color:#151515;
+    padding:12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+/*.xop-box:hover {*/
+    /*transform: scale(1.05);*/
+/*}*/
+
+.xop-img {
+    background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */
+    url(../images/paint.jpg);
+}
+
+.xop-info {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+.xop-info h3 {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: darkblue;
+    font-size: 35px;
+    margin: 0 30px;
+    padding: 30px 0 0 0;
+    line-height: 1.5;
+}
+
+.xop-info p {
+    font-family: sans-serif;
+    color: #fff;
+    padding: 4px 5px;
+    margin: 0 30px;
+    font-size: 20px;
+    line-height: 2;
+}
+
+/*trophy*/
+/*.content{*/
+    /*width: 300px;*/
+    /*height: 300px;*/
+    /*border: solid 2px ghostwhite;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+    /*top: 100px;*/
+/*}*/
+
+ /*.trophy{*/
+     /*width: 100%;*/
+     /*height: 100%;*/
+     /*background-image: url(trophy.PNG);*/
+ /*}*/
+/*.anxious{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background-image: url(anxious.jpg);*/
+/*}*/
+
+.row {
+    display: flex;
+    position: relative;
+    top: 70px;
+    left: 50px;
+}
+
+.column {
+    flex: 30%;
+    padding: 10px;
+}

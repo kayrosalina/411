@@ -3,9 +3,9 @@ body{
     padding:0;
     font-family: sans-serif;
 
-    background-image: url("test.png");
+    background-image: url("pics/city.jpeg");
     background-size: cover;
-    background-position: center;
+    /*background-position: center;*/
 }
 
 .box{
@@ -22,6 +22,11 @@ body{
     color: darkblue;
     text-transform: uppercase;
     font-weight: 500;
+}
+.box p{
+    color: darkblue;
+    font-size: 12px;
+    text-transform: lowercase;
 }
 .box input[type="text"],.box input[type="password"] {
     border: 2px solid silver;
@@ -55,4 +60,5 @@ body{
 }
 .box input[type="submit"]:hover{
     background: gainsboro;
+    width: 240px;
 }

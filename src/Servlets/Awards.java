@@ -1,5 +1,4 @@
-@javax.servlet.annotation.WebServlet(name = "Email")
-public class Email extends javax.servlet.http.HttpServlet {
+public class Awards extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
 
     }
